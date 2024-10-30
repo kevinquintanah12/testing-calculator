@@ -115,7 +115,7 @@ describe("Ui Substraction - Component", () => {
     fixture.detectChanges();
   });
 
-  it("Should call substraction method and result in 0", () => {
+  it("Should call substraction method with op1 = 2, op2 = 2 and result in 0", () => {
     // Arrange
     let result = 0;
     component.operator1 = 2;
@@ -163,7 +163,7 @@ describe("Ui Substraction - Component", () => {
     expect(component.operator2).toEqual(2.71);
   });
 
-  it("Should substract operator1 and operator2 when I click the substraction button and result in 2.5", () => {
+  it("Should substract operator1 and operator2 when I click the substraction button with op = 5.0, op2 = 2.5 and result in 2.5", () => {
     // Arrange
     component.operator1 = 5.0;
     component.operator2 = 2.5;
@@ -178,7 +178,7 @@ describe("Ui Substraction - Component", () => {
     expect(component.result).toBe(2.5);
   });
 
-  it("Should render substraction in result div and result in 0", () => {
+  it("Should render substraction in result div with op1 = 5, op2 = 5 and result in 0", () => {
     // Arrange
     component.operator1 = 5;
     component.operator2 = 5;
@@ -212,7 +212,7 @@ describe("Ui Multiplication - Component", () => {
     fixture.detectChanges();
   });
 
-  it(" Should call multiplication method and result in 4", () => {
+  it("Should call multiplication method with op1 = 2, op2 = 2 and result in 4", () => {
     // Arrange
     let result = 0;
     component.operator1 = 2;
@@ -260,7 +260,7 @@ describe("Ui Multiplication - Component", () => {
     expect(component.operator2).toEqual(2.71);
   });
 
-  it("Should multiply operator1 and operator2 when I click the multiply button and result in 12.5", () => {
+  it("Should multiply operator1 and operator2 when I click the multiply button with op1 = 5.0, op2 = 2.5 and result in 12.5", () => {
     // Arrange
     component.operator1 = 5.0;
     component.operator2 = 2.5;
@@ -275,7 +275,7 @@ describe("Ui Multiplication - Component", () => {
     expect(component.result).toBe(12.5);
   });
 
-  it("Should render multiplication in result div and result in 10", () => {
+  it("Should render multiplication in result div with op1 = 5, op2 = 5 and result in 25", () => {
     // Arrange
     component.operator1 = 5;
     component.operator2 = 5;
@@ -288,7 +288,7 @@ describe("Ui Multiplication - Component", () => {
     let el: HTMLElement = de.nativeElement;
 
     // Assert
-    expect(el.innerText).toContain("10");
+    expect(el.innerText).toContain("25");
   });
 });
 
