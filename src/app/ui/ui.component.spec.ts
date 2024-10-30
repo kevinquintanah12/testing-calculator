@@ -378,7 +378,7 @@ describe("Ui Division - Component", () => {
     component.operator2 = 5;
 
     // Act
-    component.multiplication();
+    component.division();
     fixture.detectChanges();
 
     let de = fixture.debugElement.query(By.css(".result"));
