@@ -1,41 +1,44 @@
 .calculator {
-    width: 150px;
-    text-align: center;
-    color: #999;
+  width: 150px;
+  text-align: center;
+  color: #999;
 }
 
 .result {
-    font-size: 3.0em;
-    font-weight: bold;
-    color: red;
-
+  font-size: 3em;
+  font-weight: bold;
+  color: red;
 }
 
 .operator1 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: black;
-
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
 }
 
 .operator2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: blue;
-
+  font-size: 1.5em;
+  font-weight: bold;
+  color: blue;
 }
 
 .addition-button {
-    cursor: pointer;
-    color: blue;
+  cursor: pointer;
+  color: blue;
 }
 .substraction-button {
-    cursor: pointer;
-    color: green;
+  cursor: pointer;
+  color: green;
 }
 
 .multiplication-button {
-    cursor: pointer;
-    color: blueviolet;
+  cursor: pointer;
+  color: blueviolet;
 }
 
+.division-button {
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: chocolate;
+}
