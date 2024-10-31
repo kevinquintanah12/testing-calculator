@@ -47,4 +47,12 @@ export class UiComponent implements OnInit {
 
     this.result = myresult;
   }
+
+  exponent() {
+    let myresult = 0;
+
+    myresult = exp(this.operator1, this.operator2);
+
+    this.result = myresult;
+  }
 }
