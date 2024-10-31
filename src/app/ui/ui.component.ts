@@ -3,6 +3,7 @@ import { addition } from "../addition/addition";
 import { substraction } from "../substraction/substraction";
 import { multiplication } from "../multiplication/multiplication";
 import { division } from "../division/division";
+import { exp } from "../exp/exp";
 
 @Component({
   selector: "app-ui",
