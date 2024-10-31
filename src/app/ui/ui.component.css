@@ -47,3 +47,10 @@
   cursor: pointer;
   color: palegreen;
 }
+
+.square-button {
+  font-size: 17px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: crimson;
+}

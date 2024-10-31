@@ -481,3 +481,95 @@ describe("Ui Exponent - Component", () => {
     expect(el.innerText).toContain("3125");
   });
 });
+
+describe("Ui Square - Component", () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("Should call square method with op1 = 2 and result in 4", () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 2;
+
+    // Act
+    component.square();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(4);
+  });
+
+  it("Should set operator1 model through ngModel", async () => {
+    // Arrange
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(
+      By.css('input[name="operator1"]')
+    ).nativeElement;
+
+    // Act
+    inputElement.value = "3.1416";
+    inputElement.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.operator1).toEqual(3.1416);
+  });
+
+  it("Should set operator2 model through ngModel", async () => {
+    // Arrange
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(
+      By.css('input[name="operator2"]')
+    ).nativeElement;
+
+    // Act
+    inputElement.value = "2.71";
+    inputElement.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.operator2).toEqual(2.71);
+  });
+
+  it("Should square operator1 when I click the square button with op1 = 4 and result in 16", () => {
+    // Arrange
+    component.operator1 = 4;
+    let squareButton = fixture.debugElement.query(By.css(".square-button"));
+
+    // Act
+    squareButton.triggerEventHandler("click", null);
+
+    // Assert
+    expect(component.result).toBe(16);
+  });
+
+  it("Should render square of operator1 in result div with op1 = 5 and result in 25", () => {
+    // Arrange
+    component.operator1 = 5;
+
+    // Act
+    component.square();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css(".result"));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain("25");
+  });
+});
