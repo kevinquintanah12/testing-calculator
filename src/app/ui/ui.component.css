@@ -54,3 +54,10 @@
   cursor: pointer;
   color: crimson;
 }
+
+.square-root-button {
+  font-size: 17px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: lightseagreen;
+}

@@ -573,3 +573,95 @@ describe("Ui Square - Component", () => {
     expect(el.innerText).toContain("25");
   });
 });
+
+describe("Ui Square Root - Component", () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it(" Should call square root method with op1 = 4 and result in 2", () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 4;
+
+    // Act
+    component.squareRoot();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(2);
+  });
+
+  it("Should set operator1 model through ngModel", async () => {
+    // Arrange
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(
+      By.css('input[name="operator1"]')
+    ).nativeElement;
+
+    // Act
+    inputElement.value = "3.1416";
+    inputElement.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.operator1).toEqual(3.1416);
+  });
+
+  it("Should set operator2 model through ngModel", async () => {
+    // Arrange
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(
+      By.css('input[name="operator2"]')
+    ).nativeElement;
+
+    // Act
+    inputElement.value = "2.71";
+    inputElement.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.operator2).toEqual(2.71);
+  });
+
+  it("Should get square root of operator1 when I click the square root button with op1 = 16 and result in 4", () => {
+    // Arrange
+    component.operator1 = 16;
+    let squareRootButton = fixture.debugElement.query(By.css(".square-root-button"));
+
+    // Act
+    squareRootButton.triggerEventHandler("click", null);
+
+    // Assert
+    expect(component.result).toBe(4);
+  });
+
+  it("Should render square root of operator1 in result div with op1 = 64 and result in 8", () => {
+    // Arrange
+    component.operator1 = 64;
+
+    // Act
+    component.squareRoot();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css(".result"));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain("8");
+  });
+});
